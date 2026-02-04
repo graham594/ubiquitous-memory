@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graham Rapier: Portfolio and work samples</title>
+    <meta name="description" content="Selected writing and editing samples by Graham Rapier">
+    <meta name="author" content="Graham Rapier">
+    <link rel="canonical" href="https://grahamrapier.com/portfolio.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://grahamrapier.com/portfolio.html">
+    <meta property="og:title" content="Graham Rapier: Portfolio and work samples">
+    <meta property="og:description" content="Selected writing and editing samples by Graham Rapier">
+    <meta property="og:site_name" content="Graham Rapier">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="https://grahamrapier.com/portfolio.html">
+    <meta name="twitter:title" content="Graham Rapier: Portfolio and work samples">
+    <meta name="twitter:description" content="Selected writing and editing samples by Graham Rapier">
+    <meta name="twitter:creator" content="@g_rapier">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-bg: #fafaf8;
+            --color-text: #1a1a1a;
+            --color-accent: #2a5caa;
+            --color-muted: #6b6b6b;
+            --color-border: #e0e0e0;
+            --font-serif: 'Courier Prime', 'Courier New', monospace;
+            --font-sans: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(42, 92, 170, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(42, 92, 170, 0.02) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        header {
+            padding: 3rem 5%;
+            border-bottom: 1px solid var(--color-border);
+            background: rgba(250, 250, 248, 0.9);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            font-family: var(--font-serif);
+            text-decoration: none;
+            color: var(--color-text);
+        }
+
+        nav {
+            display: flex;
+            gap: 2.5rem;
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+        }
+
+        nav a {
+            color: var(--color-text);
+            text-decoration: none;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-accent);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--color-accent);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .work-section {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .page-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 300;
+            letter-spacing: -0.02em;
+            margin-bottom: 4rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .category-section {
+            margin-bottom: 5rem;
+        }
+
+        .category-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .category-title {
+            font-size: 1.75rem;
+            font-weight: 600;
+            font-family: var(--font-sans);
+            margin-bottom: 2rem;
+            letter-spacing: -0.01em;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .work-item {
+            opacity: 0;
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .work-item:hover {
+            transform: scale(1.02);
+        }
+
+        .work-item:nth-child(1) { animation-delay: 0.1s; }
+        .work-item:nth-child(2) { animation-delay: 0.2s; }
+        .work-item:nth-child(3) { animation-delay: 0.3s; }
+
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(40px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .work-item a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .work-image {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin-bottom: 1.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .work-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.1);
+            transition: background 0.4s ease;
+        }
+
+        .work-item:hover .work-image {
+            transform: scale(1.03);
+        }
+
+        .work-item:hover .work-image::after {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .work-meta {
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            color: var(--color-muted);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .work-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            line-height: 1.3;
+            letter-spacing: -0.01em;
+        }
+
+        footer {
+            padding: 4rem 5%;
+            border-top: 1px solid var(--color-border);
+            margin-top: 6rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-connect-label h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            font-family: var(--font-sans);
+            margin: 0;
+        }
+
+        .footer-links-inline {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .footer-links-inline a {
+            color: var(--color-text);
+            text-decoration: none;
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links-inline a:hover {
+            color: var(--color-accent);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 3rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid var(--color-border);
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            color: var(--color-muted);
+        }
+
+        @media (max-width: 968px) {
+            nav {
+                gap: 1.5rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 2rem;
+                align-items: flex-start;
+            }
+
+            .footer-links-inline {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1.5rem;
+                align-items: flex-start;
+            }
+
+            nav {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="/" class="logo">Graham Rapier</a>
+            <nav>
+                <a href="/">Portfolio</a>
+                <a href="/#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="work-section">
+        <h1 class="page-title">Work samples</h1>
+        
+        <!-- Business Reporting -->
+        <div class="category-section">
+            <h2 class="category-title">Business Reporting</h2>
+            <div class="work-grid">
+                <article class="work-item">
+                    <a href="https://www.businessinsider.com/stellantis-first-moves-to-win-back-dealers-boost-sales-2024-12" target="_blank">
+                        <div class="work-image" style="background-image: url('stellantis.jpg');" role="img" aria-label="Stellantis Ram truck plant workers"></div>
+                        <div class="work-meta">Business Insider • 2024</div>
+                        <h3 class="work-title">Inside the big shake-up at Stellantis, as the embattled Jeep maker looks to boost morale and win back dealers' favor</h3>
+                    </a>
+                </article>
+                <article class="work-item">
+                    <a href="https://www.businessinsider.com/storylines-residential-luxury-cruise-ship-investors-ex-employees-2023-10" target="_blank">
+                        <div class="work-image" style="background-image: url('residential_cruise.jpg');" role="img" aria-label="Luxury residential cruise ship""></div>
+                        <div class="work-meta">Business Insider • 2023</div>
+                        <h3 class="work-title">Die-hard cruisers are paying up to $8 million for a never-ending trip. Investors and employees say they're never going to get it.</h3>
+                    </a>
+                </article>
+                <article class="work-item">
+                    <a href="https://www.businessinsider.com/airlines-credit-cards-loyalty-miles-rewards-profits-delta-united-american-2025-5" target="_blank">
+                        <div class="work-image" style="background-image: url('airline_miles.jpg');" role="img" aria-label="Airline credit card and loyalty rewards""></div>
+                        <div class="work-meta">Business Insider • 2025</div>
+                        <h3 class="work-title">Why your airline miles may be in danger</h3>
+                    </a>
+                </article>
+            </div>
+        </div>
+
+        <!-- Travel Features -->
+        <div class="category-section">
+            <h2 class="category-title">Travel Features</h2>
+            <div class="work-grid">
+                <article class="work-item">
+                    <a href="https://www.businessinsider.com/alaska-cruises-mega-popular-some-locals-not-happy-2025-3" target="_blank">
+                        <div class="work-image" style="background-image: url('alaska.jpg');" role="img" aria-label="Cruise ships in Juneau Alaska harbor""></div>
+                        <div class="work-meta">Business Insider • 2025</div>
+                        <h3 class="work-title">Alaska cruises are more popular than ever. Locals say there can be too much of a good thing.</h3>
+                    </a>
+                </article>
+                <article class="work-item">
+                    <a href="https://www.businessinsider.com/cruise-industry-business-model-changing-bad-news-for-travelers-2023-4" target="_blank">
+                        <div class="work-image" style="background-image: url('cruise_business_model.jpg');" role="img" aria-label="Cruise ship passengers and amenities""></div>
+                        <div class="work-meta">Business Insider • 2023</div>
+                        <h3 class="work-title">Cruises are increasingly adopting the strategy of budget airlines: Get ready to pay more for all the extras.</h3>
+                    </a>
+                </article>
+                <article class="work-item">
+                    <a href="https://www.businessinsider.com/royal-caribbean-icon-of-the-seas-cruise-ship-review-photos-2024-2" target="_blank">
+                        <div class="work-image" style="background-image: url('largest_ship.jpg');" role="img" aria-label="Royal Caribbean Icon of the Seas""></div>
+                        <div class="work-meta">Business Insider • 2024</div>
+                        <h3 class="work-title">I was one of the first guests on Royal Caribbean's $1,800-per-person Icon of the Seas. Nothing prepared me for what it was like on the world's largest cruise ship.</h3>
+                    </a>
+                </article>
+            </div>
+        </div>
+
+        <!-- Analysis -->
+        <div class="category-section">
+            <h2 class="category-title">Analysis</h2>
+            <div class="work-grid">
+                <article class="work-item">
+                    <a href="https://www.businessinsider.com/the-end-of-budget-airlines-southwest-jetblue-frontier-spirit-2024-7" target="_blank">
+                        <div class="work-image" style="background-image: url('budget_airlines.png');" role="img" aria-label="Budget airline aircraft""></div>
+                        <div class="work-meta">Business Insider • 2024</div>
+                        <h3 class="work-title">It's the end of budget airlines as we know them</h3>
+                    </a>
+                </article>
+                <article class="work-item">
+                    <a href="https://www.businessinsider.com/why-another-delay-boeing-new-777x-such-a-big-deal-2025-10" target="_blank">
+                        <div class="work-image" style="background-image: url('boeing.jpg');" role="img" aria-label="Boeing 777X aircraft""></div>
+                        <div class="work-meta">Business Insider • 2025</div>
+                        <h3 class="work-title">Boeing's most important plane keeps dragging it down</h3>
+                    </a>
+                </article>
+                <article class="work-item">
+                    <a href="https://www.businessinsider.com/electric-car-wont-overload-electrical-grid-california-evs-2022-10" target="_blank">
+                        <div class="work-image" style="background-image: url('charging.jpg');" role="img" aria-label="Electric vehicle charging station""></div>
+                        <div class="work-meta">Business Insider • 2022</div>
+                        <h3 class="work-title">Electric cars won't overload the power grid — and they could even help modernize our aging infrastructure</h3>
+                    </a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-connect-label">
+                <h3>Connect</h3>
+            </div>
+            <div class="footer-links-inline">
+                <a href="https://www.linkedin.com/in/grahamrapier/" target="_blank">LinkedIn</a>
+                <a href="https://twitter.com/g_rapier" target="_blank">Twitter</a>
+                <a href="/cdn-cgi/l/email-protection#660114070e070b481407160f031426010b070f0a4805090b">Email</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Graham Rapier. All rights reserved.</p
